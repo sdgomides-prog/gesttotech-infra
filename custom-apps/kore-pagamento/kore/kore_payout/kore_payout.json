@@ -1,0 +1,94 @@
+{
+  "name": "Kore Payout",
+  "doctype": "DocType",
+  "module": "Kore",
+  "custom": 0,
+  "is_submittable": 0,
+  "istable": 0,
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "payout_id",
+    "amount",
+    "description",
+    "status",
+    "recipient_key",
+    "recipient_key_type",
+    "section_response",
+    "raw_response"
+  ],
+  "fields": [
+    {
+      "fieldname": "payout_id",
+      "fieldtype": "Data",
+      "label": "Payout ID",
+      "unique": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Valor (R$)",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Small Text",
+      "label": "Descri\u00e7\u00e3o"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "Pending\nProcessing\nPaid\nFailed\nCancelled",
+      "default": "Pending",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "recipient_key",
+      "fieldtype": "Data",
+      "label": "Chave PIX do Destinat\u00e1rio",
+      "reqd": 1
+    },
+    {
+      "fieldname": "recipient_key_type",
+      "fieldtype": "Select",
+      "label": "Tipo de Chave PIX",
+      "options": "CPF\nCNPJ\nEmail\nTelefone\nEVP",
+      "reqd": 1
+    },
+    {
+      "fieldname": "section_response",
+      "fieldtype": "Section Break",
+      "label": "Resposta HappyPay"
+    },
+    {
+      "fieldname": "raw_response",
+      "fieldtype": "Long Text",
+      "label": "Raw Response (JSON)"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1
+    },
+    {
+      "role": "Accounts Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "track_changes": 1
+}
